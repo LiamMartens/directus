@@ -566,6 +566,7 @@ class Bootstrap
                     $fileRows = $result->toArray();
                     $files = new \Directus\Files\Files();
                     foreach ($fileRows as &$row) {
+                        if(!isset($row['name'])) { continue; }
                         $config = Bootstrap::get('config');
                         $fileURL = $config['filesystem']['root_url'];
                         $thumbnailURL = $config['filesystem']['root_thumb_url'];
